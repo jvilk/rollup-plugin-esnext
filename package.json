@@ -1,0 +1,46 @@
+{
+  "name": "rollup-plugin-esnext",
+  "version": "0.1.0",
+  "description": "Convert CommonJS plugins to ES6 using esnext so they can be included in a Rollup bundle.",
+  "main": "dist/rollup-plugin-esnext.cjs.js",
+  "jsnext:main": "dist/rollup-plugin-commonjs.es6.js",
+  "scripts": {
+    "test": "mocha --compilers js:babel-register",
+    "pretest": "npm run build",
+    "build": "rm -rf dist/* && rollup -c -f cjs -o dist/rollup-plugin-esnext.cjs.js && rollup -c -f es6 -o dist/rollup-plugin-esnext.es6.js",
+    "prepublish": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jvilk/rollup-plugin-esnext.git"
+  },
+  "keywords": [
+    "rollup",
+    "plugin",
+    "esnext",
+    "commonjs",
+    "conversion",
+    "es6",
+    "es2015",
+    "module"
+  ],
+  "author": "John Vilk <jvilk@cs.umass.edu>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jvilk/rollup-plugin-esnext/issues"
+  },
+  "homepage": "https://github.com/jvilk/rollup-plugin-esnext#readme",
+  "dependencies": {
+    "esnext": "^2.0.0",
+    "rollup-pluginutils": "^1.3.1"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-es2015-rollup": "^1.1.1",
+    "babel-register": "^6.9.0",
+    "rollup": "^0.26.3",
+    "rollup-plugin-babel": "^2.4.0",
+    "rollup-plugin-node-resolve": "^1.5.0",
+    "source-map": "^0.5.6"
+  }
+}
